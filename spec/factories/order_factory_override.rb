@@ -10,10 +10,10 @@ FactoryBot.define do
     ship_address
 
     transient do
-      line_items_count 1
+      line_items_count { 1 }
       line_items_attributes { [{}] * line_items_count }
-      shipment_cost 100
-      shipping_method nil
+      shipment_cost { 100 }
+      shipping_method { nil }
       stock_location { create(:stock_location) }
     end
 
@@ -40,7 +40,7 @@ FactoryBot.define do
 
       order.shipments.reload
 
-      if SolidusSupport.solidus_gem_version < Gem::Version.new('2.4.x')
+      if Spree.solidus_gem_version < Gem::Version.new('2.4.x')
         order.update!
       else
         order.recalculate
