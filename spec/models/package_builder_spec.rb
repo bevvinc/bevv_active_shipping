@@ -28,14 +28,14 @@ describe Spree::PackageBuilder do
 
     it 'uses the unit multiplier in the calculations' do
       allow(package_builder).to receive(:multiplier).and_return(2)
-      expect(subject.sum(&:weight)).to eq (package.weight * 2)
+      expect(subject.inject(0) {|sum,x| sum + x.weight.value }).to eq (package.weight * 2)
     end
 
     context 'when one product has a zero weight' do
       let(:variant_1) { FactoryBot.create(:variant, weight: 0) }
 
       it 'ignores products with nil weight' do
-        expect(subject.sum(&:weight)).to eq (variant_2.weight * 2)
+        expect(subject.inject(0) {|sum,x| sum + x.weight.value }).to eq (variant_2.weight * 2)
       end
     end
 
@@ -45,7 +45,7 @@ describe Spree::PackageBuilder do
       let(:default_weight) { Spree::ActiveShipping::Config[:default_weight] }
 
       it 'use the default_weight as a weight value' do
-        expect(subject.sum(&:weight)).to eq(default_weight * 4)
+        expect(subject.inject(0) {|sum,x| sum + x.weight.value }).to eq(default_weight * 4)
       end
     end
 
@@ -181,7 +181,7 @@ describe Spree::PackageBuilder do
         active_shipping_packages = subject
         # First package in the array is the "default package" who should
         # only include product_with_no_packages x2
-        expect(active_shipping_packages[0].weight).to eq (product_no_packages.weight * 2)
+        expect(active_shipping_packages[0].weight.value).to eq (product_no_packages.weight * 2)
       end
     end
   end
