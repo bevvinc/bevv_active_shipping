@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
+branch = ENV.fetch('SOLIDUS_BRANCH', 'v2.8')
 gem "solidus", github: "solidusio/solidus", branch: branch
 
 if branch == 'master' || branch >= "v2.0"
@@ -11,7 +11,6 @@ end
 
 gem 'sqlite3'
 gem 'pg', '~> 0.21'
-gem 'mysql2', '~> 0.4.10'
 
 group :development, :test do
   gem 'pry-rails'
