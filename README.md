@@ -1,6 +1,8 @@
 Active Shipping
 ===============
 
+**NOTE : This is a customized gem only supporting UPS**
+
 This is a Solidus extension that wraps the popular [active_shipping](http://github.com/Shopify/active_shipping/tree/master) plugin.
 
 **NOTE : This is an old and complex extension that is not under active development. Use with caution**
@@ -20,7 +22,7 @@ Installation
 To install the latest edge version of this extension, place this line inside your application's Gemfile:
 
 ```ruby
-gem 'solidus_active_shipping', :git => "git://github.com/solidusio-contrib/solidus_active_shipping"
+gem 'bevv_active_shipping', :git => "git://github.com/bevvinc/bevv_active_shipping"
 ```
 **2.** Run bundler:
 
@@ -45,7 +47,6 @@ Once you have an account, you can go to the active shipping settings admin confi
 Spree::ActiveShipping::Config[:ups_login]
 Spree::ActiveShipping::Config[:ups_password]
 Spree::ActiveShipping::Config[:ups_key]
-Spree::ActiveShipping::Config[:usps_login]
 ```
 
 **NOTE:** When setting up FedEx credentials, `:fedex_login` is the "Meter Number" that FedEx supplies you with.

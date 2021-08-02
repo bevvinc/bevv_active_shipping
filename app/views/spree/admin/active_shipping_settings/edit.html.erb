@@ -25,66 +25,6 @@
 
         <div class="col-5">
           <fieldset class="currency no-border-bottom">
-            <legend align="center"><%= I18n.t(:fedex_settings, scope: :spree)%></legend>
-
-            <% @preferences_FedEx.each do |name| %>
-              <div class="field">
-                <%= render "spree/admin/shared/preference_fields/#{@config.preference_type(name)}",
-                  name:  name.to_s,
-                  value: @config[name],
-                  label: t(name.to_s, scope: 'spree', default: name.to_s.humanize) %>
-              </div>
-            <% end %>
-          </fieldset>
-        </div>
-
-        <div class="col-5">
-          <fieldset class="security no-border-bottom">
-            <legend align="center"><%= I18n.t(:usps_settings, scope: :spree)%></legend>
-
-            <% @preferences_USPS.each do |name| %>
-              <div class="field">
-                <%= render "spree/admin/shared/preference_fields/#{@config.preference_type(name)}",
-                  name:  name.to_s,
-                  value: @config[name],
-                  label: t(name.to_s, scope: 'spree', default: name.to_s.humanize) %>
-              </div>
-            <% end %>
-          </fieldset>
-        </div>
-
-        <div class="col-5">
-          <fieldset class="currency no-border-bottom">
-            <legend align="center"><%= I18n.t(:canada_post_settings, scope: :spree)%></legend>
-
-            <% @preferences_CanadaPost.each do |name| %>
-              <div class="field">
-                <%= render "spree/admin/shared/preference_fields/#{@config.preference_type(name)}",
-                  name:  name.to_s,
-                  value: @config[name],
-                  label: t(name.to_s, scope: 'spree', default: name.to_s.humanize) %>
-              </div>
-            <% end %>
-          </fieldset>
-        </div>
-
-        <div class="col-5">
-          <fieldset class="currency no-border-bottom">
-            <legend align="center"><%= I18n.t(:canada_post_pws_settings, scope: :spree)%></legend>
-
-            <% @preferences_CanadaPostPws.each do |name| %>
-              <div class="field">
-                <%= render "spree/admin/shared/preference_fields/#{@config.preference_type(name)}",
-                  name:  name.to_s,
-                  value: @config[name],
-                  label: t(name.to_s, scope: 'spree', default: name.to_s.humanize) %>
-              </div>
-            <% end %>
-          </fieldset>
-        </div>
-
-        <div class="col-5">
-          <fieldset class="currency no-border-bottom">
             <legend align="center"><%= I18n.t(:general_settings, scope: :spree)%></legend>
 
             <% @preferences_GeneralSettings.each do |name| %>

@@ -27,7 +27,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'solidus_support', '~> 0.5'
   s.add_dependency 'solidus_backend', solidus_version
   s.add_dependency 'solidus_api', solidus_version
-  s.add_dependency 'active_shipping', '~> 2.1.1'
+  s.add_dependency 'measured', '>= 2.0'
+  s.add_dependency 'activesupport', '>= 4.2', '< 6.1'
+  s.add_dependency 'active_utils', '~> 3.3.1'
+  s.add_dependency 'nokogiri', '>= 1.6'
 
   s.add_development_dependency 'solidus_dev_support', '~> 2.1'
   s.add_development_dependency 'poltergeist'
